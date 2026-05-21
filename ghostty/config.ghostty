@@ -1,5 +1,5 @@
 # Ghostty profile: Liquid Glass / Space Black (system-following)
-# Canonical config location for this machine.
+# Copy this file into your active Ghostty config location.
 
 # Follow system appearance with theme-appropriate backgrounds.
 theme = light:GitHub Light Default,dark:Carbonfox-Black

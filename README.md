@@ -118,3 +118,6 @@ Before publishing a fork or variant:
 - Do not commit Zed prompt databases, extension caches, Ghostty logs, shell history, or auth material.
 - Keep install instructions explicit. Avoid remote script execution such as `curl | sh`.
 
+## License
+
+MIT
