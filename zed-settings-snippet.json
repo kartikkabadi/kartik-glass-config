@@ -1,0 +1,12 @@
+{
+  "icon_theme": {
+    "mode": "system",
+    "light": "Light Charmed Icons",
+    "dark": "Soft Charmed Icons"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Codex Cursor Glass Light",
+    "dark": "Codex Cursor Glass Dark"
+  }
+}
