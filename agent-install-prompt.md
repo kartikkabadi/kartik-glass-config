@@ -3,20 +3,24 @@
 Send this to your local coding agent:
 
 ```text
-Install the Codex Cursor Glass Zed theme from this repository.
+Install the Kartik Glass Config from this repository.
 
 Tasks:
-1. Inspect my Zed config directory and confirm the active settings path.
-2. Copy `themes/codex-cursor-glass.json` into the local Zed themes directory.
-3. Merge `zed-settings-snippet.json` into my Zed `settings.json` without deleting unrelated settings.
-4. Keep `theme.mode` set to `system` so Zed follows the OS light/dark appearance.
-5. Verify the selected theme names exist in the theme file:
-   - Codex Cursor Glass Light
-   - Codex Cursor Glass Dark
-6. Check whether the optional Charmed Icons extension is installed. If it is not installed, either remove the `icon_theme` block or tell me how to install it.
-7. Validate JSON after editing.
-8. Report exactly what changed and whether Zed needs a restart or reload.
+1. Inspect my Zed and Ghostty config locations and identify the active files.
+2. Install `zed/themes/kartik-glass-zed.json` into the Zed themes directory.
+3. Merge `zed/settings-snippet.json` into my Zed settings without deleting unrelated settings.
+4. Keep Zed `theme.mode` set to `system`.
+5. Verify the Zed theme names exist:
+   - Kartik Glass Light
+   - Kartik Glass Dark
+6. Install Ghostty files:
+   - `ghostty/config.ghostty`
+   - `ghostty/themes/Carbonfox-Black`
+   - `ghostty/shaders/blaze.glsl`
+7. Preserve my existing configs by backing them up or showing a diff before overwriting.
+8. Validate JSON for Zed and check Ghostty config paths.
+9. Report exactly what changed and whether either app needs a reload.
 
-Do not read secrets, auth files, browser profiles, or unrelated dotfiles.
-Do not overwrite my existing settings. Merge only the relevant Zed theme settings.
+Do not read secrets, auth files, browser profiles, shell history, or unrelated dotfiles.
+Do not overwrite unrelated settings.
 ```

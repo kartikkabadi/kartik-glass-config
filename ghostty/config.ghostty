@@ -1,0 +1,38 @@
+# Ghostty profile: Liquid Glass / Space Black (system-following)
+# Canonical config location for this machine.
+
+# Follow system appearance with theme-appropriate backgrounds.
+theme = light:GitHub Light Default,dark:Carbonfox-Black
+window-theme = system
+
+# Blend with macOS chrome for a cleaner native look.
+macos-titlebar-style = transparent
+
+# Typography
+font-family = SF Mono
+font-size = 15
+
+# Airier window framing to emphasize the glass effect.
+window-padding-x = 14
+window-padding-y = 12
+window-padding-balance = true
+window-padding-color = extend
+
+# Glass transparency (background color is set per-theme).
+background-opacity = 0.85
+background-blur = true
+background-opacity-cells = true
+
+# Cursor trail shader (amber glow effect).
+custom-shader = ./shaders/blaze.glsl
+custom-shader-animation = always
+
+# Keep shell-aware features enabled.
+shell-integration = detect
+
+# Practical history size for long dev sessions.
+scrollback-limit = 20000000
+
+# Minimal safe quality-of-life keybind additions.
+keybind = super+shift+o=open_config
+keybind = super+shift+r=reload_config

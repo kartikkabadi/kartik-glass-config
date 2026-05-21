@@ -1,10 +1,10 @@
 {
   "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
-  "name": "Codex Cursor Glass",
+  "name": "Kartik Glass Zed",
   "author": "Kartik + Codex",
   "themes": [
     {
-      "name": "Codex Cursor Glass Dark",
+      "name": "Kartik Glass Dark",
       "appearance": "dark",
       "style": {
         "background.appearance": "blurred",
@@ -245,7 +245,7 @@
       }
     },
     {
-      "name": "Codex Cursor Glass Light",
+      "name": "Kartik Glass Light",
       "appearance": "light",
       "style": {
         "background.appearance": "blurred",

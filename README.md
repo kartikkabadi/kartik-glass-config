@@ -1,62 +1,52 @@
-# Codex Cursor Glass for Zed
+# Kartik Glass Config
 
-A small Zed setup for a Codex/Cursor-inspired liquid glass look.
+Personal editor and terminal config for a Codex/Cursor-ish liquid glass setup.
 
-It includes:
+Included:
 
-- a local Zed theme file with matching dark and light variants
-- system-theme switching for macOS light/dark mode
-- a blue typing cursor in both modes
-- a copy-paste prompt you can give to an agent to install and verify it
+- Zed theme with system light/dark switching
+- Ghostty config with transparent macOS chrome, blur, a custom Carbonfox dark theme, and cursor trail shader
+- install snippets and an agent prompt for safe setup
 
-## Preview
+This is a taste pack, not an official Codex, Cursor, Zed, or Ghostty theme.
 
-This repository does not include screenshots yet. The theme is tuned for a neutral, glassy editor surface:
+## Contents
 
-- Dark mode: charcoal glass, soft blue accents, balanced teal/green syntax
-- Light mode: off-white glass, matching accent families with stronger contrast
-- Both modes: consistent opacity on major surfaces to avoid blocky panels
+```text
+zed/
+  themes/kartik-glass-zed.json
+  settings-snippet.json
 
-## Files
+ghostty/
+  config.ghostty
+  themes/Carbonfox-Black
+  shaders/blaze.glsl
 
-- `themes/codex-cursor-glass.json`: the Zed theme
-- `zed-settings-snippet.json`: the settings block to add to your Zed config
-- `agent-install-prompt.md`: a prompt you can send to Codex, Cursor, OpenCode, or another local coding agent
+agent-install-prompt.md
+```
 
-## Manual Install
+## Zed
 
-1. Open your Zed config directory.
+Copy the Zed theme:
 
-   On macOS, it is usually:
+```sh
+mkdir -p ~/.config/zed/themes
+cp zed/themes/kartik-glass-zed.json ~/.config/zed/themes/kartik-glass-zed.json
+```
 
-   ```sh
-   ~/.config/zed
-   ```
+Merge this into `~/.config/zed/settings.json`:
 
-2. Copy the theme file:
+```json
+{
+  "theme": {
+    "mode": "system",
+    "light": "Kartik Glass Light",
+    "dark": "Kartik Glass Dark"
+  }
+}
+```
 
-   ```sh
-   mkdir -p ~/.config/zed/themes
-   cp themes/codex-cursor-glass.json ~/.config/zed/themes/codex-cursor-glass.json
-   ```
-
-3. Merge this into `~/.config/zed/settings.json`:
-
-   ```json
-   {
-     "theme": {
-       "mode": "system",
-       "light": "Codex Cursor Glass Light",
-       "dark": "Codex Cursor Glass Dark"
-     }
-   }
-   ```
-
-4. Restart Zed or run `Reload Window`.
-
-## Recommended Settings
-
-This is the full snippet used with the theme:
+Optional icon setup:
 
 ```json
 {
@@ -64,50 +54,67 @@ This is the full snippet used with the theme:
     "mode": "system",
     "light": "Light Charmed Icons",
     "dark": "Soft Charmed Icons"
-  },
-  "theme": {
-    "mode": "system",
-    "light": "Codex Cursor Glass Light",
-    "dark": "Codex Cursor Glass Dark"
   }
 }
 ```
 
-The icon theme names come from the `charmed-icons` Zed extension. If you do not use that extension, remove the `icon_theme` block or choose your own icons.
+The icon theme names come from the `charmed-icons` Zed extension. Remove that block if you do not use it.
+
+## Ghostty
+
+Ghostty supports more than one config location depending on install and platform. On macOS, the active app config is often:
+
+```text
+~/Library/Application Support/com.mitchellh.ghostty/config.ghostty
+```
+
+Install the included files:
+
+```sh
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty/themes"
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty/shaders"
+
+cp ghostty/config.ghostty "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+cp ghostty/themes/Carbonfox-Black "$HOME/Library/Application Support/com.mitchellh.ghostty/themes/Carbonfox-Black"
+cp ghostty/shaders/blaze.glsl "$HOME/Library/Application Support/com.mitchellh.ghostty/shaders/blaze.glsl"
+```
+
+Then reload Ghostty with `Super+Shift+R` or restart the app.
 
 ## Agent Prompt
 
-Use this prompt with a local coding agent:
+Send this to a local agent:
 
 ```text
-Install the Codex Cursor Glass Zed theme from this repository.
+Install the Kartik Glass Config from this repository.
 
 Tasks:
-1. Inspect my Zed config directory and confirm the active settings path.
-2. Copy `themes/codex-cursor-glass.json` into the local Zed themes directory.
-3. Merge `zed-settings-snippet.json` into my Zed `settings.json` without deleting unrelated settings.
-4. Keep `theme.mode` set to `system` so Zed follows the OS light/dark appearance.
-5. Verify the selected theme names exist in the theme file:
-   - Codex Cursor Glass Light
-   - Codex Cursor Glass Dark
-6. Check whether the optional Charmed Icons extension is installed. If it is not installed, either remove the `icon_theme` block or tell me how to install it.
-7. Validate JSON after editing.
-8. Report exactly what changed and whether Zed needs a restart or reload.
+1. Inspect my Zed and Ghostty config locations and identify the active files.
+2. Install `zed/themes/kartik-glass-zed.json` into the Zed themes directory.
+3. Merge `zed/settings-snippet.json` into my Zed settings without deleting unrelated settings.
+4. Keep Zed `theme.mode` set to `system`.
+5. Verify the Zed theme names exist:
+   - Kartik Glass Light
+   - Kartik Glass Dark
+6. Install Ghostty files:
+   - `ghostty/config.ghostty`
+   - `ghostty/themes/Carbonfox-Black`
+   - `ghostty/shaders/blaze.glsl`
+7. Preserve my existing configs by backing them up or showing a diff before overwriting.
+8. Validate JSON for Zed and check Ghostty config paths.
+9. Report exactly what changed and whether either app needs a reload.
 
-Do not read secrets, auth files, browser profiles, or unrelated dotfiles.
-Do not overwrite my existing settings. Merge only the relevant Zed theme settings.
+Do not read secrets, auth files, browser profiles, shell history, or unrelated dotfiles.
+Do not overwrite unrelated settings.
 ```
 
-## GitHub Setup Checklist
+## Publish Checklist
 
-If you publish your own fork or variant, check:
+Before publishing a fork or variant:
 
-- The theme JSON validates with `jq empty themes/codex-cursor-glass.json`.
-- The README does not include machine-local paths except generic examples like `~/.config/zed`.
-- No personal Zed settings, prompts databases, logs, or extension caches are committed.
-- The repo has a license.
-- The install instructions do not use `curl | sh` or any remote script execution.
+- `jq empty zed/themes/kartik-glass-zed.json zed/settings-snippet.json`
+- Check that docs do not include private machine paths beyond generic `~` examples.
+- Do not commit Zed prompt databases, extension caches, Ghostty logs, shell history, or auth material.
+- Keep install instructions explicit. Avoid remote script execution such as `curl | sh`.
 
-## Notes
-
-This is a personal taste theme, not an official Codex, Cursor, or Zed theme.
