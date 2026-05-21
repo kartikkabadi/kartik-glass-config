@@ -10,6 +10,20 @@ Included:
 
 This is a taste pack, not an official Codex, Cursor, Zed, or Ghostty theme.
 
+## Screenshots
+
+### Light Mode
+
+![Zed light mode](screenshots/zed-light.png)
+
+![Ghostty light mode](screenshots/ghostty-light.png)
+
+### Dark Mode
+
+![Zed dark mode](screenshots/zed-dark.png)
+
+![Ghostty dark mode](screenshots/ghostty-dark.png)
+
 ## Agent Prompt
 
 Copy and send this whole prompt to a local agent:
